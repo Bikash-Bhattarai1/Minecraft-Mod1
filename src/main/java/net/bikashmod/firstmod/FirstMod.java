@@ -1,6 +1,7 @@
 package net.bikashmod.firstmod;
 
 import com.mojang.logging.LogUtils;
+import net.bikashmod.firstmod.block.ModBlocks;
 import net.bikashmod.firstmod.item.Moditems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -41,6 +42,8 @@ public class FirstMod
         MinecraftForge.EVENT_BUS.register(this);
 
         Moditems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -54,11 +57,13 @@ public class FirstMod
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(Moditems.RUBY);
             event.accept(Moditems.ANUP);
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.RUBY_BLOCK);
         }
     }
 
