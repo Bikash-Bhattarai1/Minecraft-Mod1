@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "firstmod:block/ruby_block"
+    "all": "firstmod:block/anup_block"
   }
 }

@@ -19,9 +19,17 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS , FirstMod.MOD_ID);
 
-    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block",
-            () -> new Block (BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.AMETHYST)));
+
+    public static final RegistryObject<Block> ANUP_BLOCK = registerBlock("anup_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.NETHER_ORE)));
 
      private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
          RegistryObject<T> toReturn = BLOCKS.register(name, block);

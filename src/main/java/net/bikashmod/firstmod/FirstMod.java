@@ -64,6 +64,7 @@ public class FirstMod
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.RUBY_BLOCK);
+            event.accept(ModBlocks.ANUP_BLOCK);
         }
     }
 
