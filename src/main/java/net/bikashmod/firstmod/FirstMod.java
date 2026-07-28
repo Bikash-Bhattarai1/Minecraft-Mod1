@@ -40,7 +40,7 @@ public class FirstMod
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new net.bikashmod.firstmod.event.PlayerEvents());
+       // MinecraftForge.EVENT_BUS.register(new net.bikashmod.firstmod.event.PlayerEvents());
 
         Moditems.register(modEventBus);
         ModBlocks.register(modEventBus);
