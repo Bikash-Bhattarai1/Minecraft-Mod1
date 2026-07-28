@@ -2,9 +2,11 @@ package net.bikashmod.firstmod.block;
 
 import net.bikashmod.firstmod.FirstMod;
 import net.bikashmod.firstmod.item.Moditems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,16 +22,17 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS , FirstMod.MOD_ID);
 
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()
-                    .sound(SoundType.AMETHYST)));
+            () -> new DropExperienceBlock(UniformInt.of(20,25),BlockBehaviour.Properties.of()
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> ANUP_BLOCK = registerBlock("anup_block",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()
-                    .sound(SoundType.NETHER_ORE)));
+            () -> new DropExperienceBlock( UniformInt.of(70,80),BlockBehaviour.Properties.of()
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()));
+
+
+
 
      private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
          RegistryObject<T> toReturn = BLOCKS.register(name, block);
